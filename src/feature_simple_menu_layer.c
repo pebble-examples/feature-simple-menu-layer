@@ -17,6 +17,7 @@ static int s_hit_count = 0;
 static void menu_select_callback(int index, void *ctx) {
   s_first_menu_items[index].subtitle = "You've hit select here!";
   layer_mark_dirty(simple_menu_layer_get_layer(s_simple_menu_layer));
+
 }
 
 static void special_select_callback(int index, void *ctx) {
@@ -59,7 +60,7 @@ static void main_window_load(Window *window) {
     .title = "Third Item",
     .subtitle = "This has an icon",
     .callback = menu_select_callback,
-    .icon = s_menu_icon_image,
+    .icon = PBL_IF_RECT_ELSE(s_menu_icon_image, NULL),
   };
 
   s_second_menu_items[0] = (SimpleMenuItem) {
@@ -72,7 +73,7 @@ static void main_window_load(Window *window) {
     .items = s_first_menu_items,
   };
   s_menu_sections[1] = (SimpleMenuSection) {
-    .title = "Yet Another Section",
+    .title = PBL_IF_RECT_ELSE("Yet Another Section", NULL),
     .num_items = NUM_SECOND_MENU_ITEMS,
     .items = s_second_menu_items,
   };
