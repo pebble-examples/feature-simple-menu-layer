@@ -58,7 +58,7 @@ static void main_window_load(Window *window) {
   };
   s_first_menu_items[num_a_items++] = (SimpleMenuItem) {
     .title = "Third Item",
-    .subtitle = "This has an icon",
+    .subtitle = PBL_IF_RECT_ELSE("This has an icon", "Item number three"),
     .callback = menu_select_callback,
     .icon = PBL_IF_RECT_ELSE(s_menu_icon_image, NULL),
   };
