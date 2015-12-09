@@ -12,7 +12,7 @@
   "resources": {
     "media": [
       {
-        "type": "png",
+        "type": "bitmap",
         "name": "IMAGE_MENU_ICON_1",
         "file": "images/menu_icon_simplicity.png"
       }
